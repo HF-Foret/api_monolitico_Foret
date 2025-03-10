@@ -16,7 +16,26 @@ const getAllUsers = async () => {
     return await userRepository.getAllUsers();
 };
 
+const getUserById = async (id) => {
+    return await userRepository.getUserById(id);
+};
+
+const updateUser = async (id, userData) => {
+    const user = {
+        ...userData,
+        updatedAt: new Date()
+    };
+    return await userRepository.updateUser(id, user);
+};
+
+const deleteUser = async (id) => {
+    return await userRepository.deleteUser(id);
+};
+
 module.exports = {
     createUser,
     getAllUsers,
+    getUserById,
+    updateUser,
+    deleteUser,
 };
